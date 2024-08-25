@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, width=device-width">
+        <title>ReSourced</title>
+    </head>
+    <body style="background-color: white;">
+      <style>#top, #bottom, #left, #right {
+	background: #8bc34a;
+	position: fixed;
+	}
+	#left, #right {
+		top: 0; bottom: 0;
+		width: 15px;
+		}
+		#left { left: 0; }
+		#right { right: 0; }
+		
+	#top, #bottom {
+		left: 0; right: 0;
+		height: 15px;
+		}
+		#top { top: 0; }
+		#bottom { bottom: 0; }</style>
+      
+    <div style="background-color: #d4af37"id="left"></div>
+<div style="background-color: #d4af37" id="right"></div>
+<div style="background-color: #d4af37" id="top"></div>
+<div style="background-color: #d4af37" id="bottom"></div>
+    
+    <style>
+  .topnav {
+  background-color: #FFFFE0;
+  overflow: hidden;
+  margin-top: 1.2%;
+  width: 100%;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: right;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 20px 20px;
+  padding-bottom: 20px;
+  text-decoration: none;
+  font-size: 19px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: #00b4a3;
+  color: white;
+}
+  </style>
+       <script>
+        document.body.addEventListener("keydown", function (event) {
+    if (event.key === "Tab") {
+        window.location.replace("/modcommands");
+    }
+});
+      </script>
+    <div class="topnav">
+          <img src="https://i.ibb.co/4VkKw91/stamp4.png" style="height: 4%; width: 4%; margin-left: 1.5%; float: left;"><div style="font-size: 3vw; color: #00b4a3; font-family: verdana; float: left; margin-top: 2%;">eSourced</div>
+      
+      <a href="/logout" style="background-color:#DC3545; margin-right: 1%; height: 100%;">Log Out</a>
+        </div>
+   
+      <div style="font-size: 8vw; color: black; text-align: center; margin-bottom:5%;"> <r style="color: #ffcc00;">R</r><esourced style="color: #00b4a3">eSourced</esourced></</div>
+      
+      <div style="color:black; font-size: 3vw; width: 100%; text-align: center;">{{sentence}} </div><br>
+      {% if rank >= 15 %}
+      <form action="/searchuser" method="POST">
+        <div class="form-group" style="margin-bottom: 5%;">
+          <input placeholder="Username (Case Insensitive)" type="text" name="username" id="username" class="form-control" style="height: 10%; font-size: 3vw; margin-left: 3%; margin-right: 3%; width: 94%; border-style: solid; border-width: 4px; border-color: #000000;">
+        
+          <button type="submit" class="btn btn-warning
+            form-control" style="height: 10%; font-size: 3vw; margin-left: 3%; margin-right: 3%;  width: 94%; margin-bottom:5%;">Search Account</button>
+      </form>
+      <form action="/badwriting" method="POST">
+        <div class="form-group" style="margin-bottom: 5%;">
+          <input placeholder="You know..." type="text" name="writing" id="writing" class="form-control" style="height: 10%; font-size: 3vw; margin-left: 3%; margin-right: 3%; width: 94%; border-style: solid; border-width: 4px; border-color: #000000;">
+        
+          <button type="submit" class="btn btn-warning
+            form-control" style="height: 10%; font-size: 3vw; margin-left: 3%; margin-right: 3%;  width: 94%; margin-bottom:5%;">Enter for Review</button>
+      </form>
+      <form action="/allusers" method="GET">
+        
+          <button type="submit" class="btn btn-danger form-control" style="height: 10%; font-size: 3vw; margin-left: 3%; margin-right: 3%;  width: 94%; margin-bottom:5%;">View All Users</button>
+      </form>
+    
+      {% endif %}
+      {% if rank >= 10 %}
+      <form action="/changerank" method="POST">
+        <div class="form-group" style="margin-bottom: 5%;">
+          <input placeholder="Username (Case Insensitive)" type="text" name="username" id="username" class="form-control" style="height: 10%; font-size: 3vw; margin-left: 3%; margin-right: 3%; width: 94%; border-style: solid; border-width: 4px; border-color: #000000;">
+            <input placeholder="Rank" type="text" name="rank" id="rank" class="form-control" style="height: 10%; font-size: 3vw; margin-left: 3%; margin-right: 3%; width: 94%; border-style: solid; border-width: 4px; border-color: #000000;">
+          <button type="submit" class="btn btn-primary form-control" style="height: 10%; font-size: 3vw; margin-left: 3%; margin-right: 3%;  width: 94%; margin-bottom:5%;">Change Rank</button>
+      </form>
+      <form action="/deleteacc" method="POST">
+        <div class="form-group" style="margin-bottom: 5%;">
+          <input placeholder="Username (Case Insensitive)" type="text" name="username" id="username" class="form-control" style="height: 10%; font-size: 3vw; margin-left: 3%; margin-right: 3%; width: 94%; border-style: solid; border-width: 4px; border-color: #000000;">
+        
+          <button type="submit" class="btn btn-danger form-control" style="height: 10%; font-size: 3vw; margin-left: 3%; margin-right: 3%;  width: 94%; margin-bottom:5%;">Delete A User's Account</button>
+      </form>
+
+      {% endif %}
+      {% if rank >= 7 %}
+      <form action="/createcourse" method="GET">
+        <div class="form-group" style="margin-bottom: 5%;">
+    
+          <button type="submit" class="btn btn-primary form-control" style="height: 10%; font-size: 3vw; margin-left: 3%; margin-right: 3%;  width: 94%; margin-bottom:5%;">Create Course</button>
+      </form>
+      <form action="/deletecourse" method="POST">
+        <div class="form-group" style="margin-bottom: 5%;">
+          <input placeholder="Name of Course" type="text" name="name" id="name" class="form-control" style="height: 10%; font-size: 3vw; margin-left: 3%; margin-right: 3%; width: 94%; border-style: solid; border-width: 4px; border-color: #000000;">
+      
+          <button type="submit" class="btn btn-danger form-control" style="height: 10%; font-size: 3vw; margin-left: 3%; margin-right: 3%;  width: 94%; margin-bottom:5%;">Delete Course</button>
+      </form>
+      <form action="/addvideo" method="POST">
+        <div class="form-group" style="margin-bottom: 5%;">
+            <input placeholder="Name of Course(Case Insensitive)" type="text" name="name" id="name" class="form-control" style="height: 10%; font-size: 3vw; margin-left: 3%; margin-right: 3%; width: 94%; border-style: solid; border-width: 4px; border-color: #000000;">
+            <input placeholder="Video Link to Add" type="text" name="link" id="link" class="form-control" style="height: 10%; font-size: 3vw; margin-left: 3%; margin-right: 3%; width: 94%; border-style: solid; border-width: 4px; border-color: #000000;">
+          <button type="submit" class="btn btn-primary form-control" style="height: 10%; font-size: 3vw; margin-left: 3%; margin-right: 3%;  width: 94%; margin-bottom:5%;">Add Video Link</button>
+      </form>
+      <form action="/addsubject" method="POST">
+        <div class="form-group" style="margin-bottom: 5%;">
+            <input placeholder="Name of Course(Case Insensitive)" type="text" name="name" id="name" class="form-control" style="height: 10%; font-size: 3vw; margin-left: 3%; margin-right: 3%; width: 94%; border-style: solid; border-width: 4px; border-color: #000000;">
+            <select multiple required id="subject" name="subject" class="form-control" style="height: 10%; font-size: 3vw; margin-left: 3%; margin-right: 3%; width: 94%; border-style: solid; border-width: 4px; border-color: #000000; ">
+              
+              <option focused disabled >Choose a Subject to Add</option>
+                  <option value="Math">Math</option>
+                  <option value="Science">Science</option>
+                <option value="LA">English</option>
+                  <option value="Art">Art</option>
+                  <option value="Extra-Curriculars">Extra-Curriculars</option>
+            <option value="History">History</option>
+                  <option value="Geography">Geography</option>
+                  <option value="French">French</option>
+                
+                </select>
+
+          <div style="font-size: 3vw; margin-left: 3%; margin-right: 3%; color: black;">Press CTRL(Windows) or Command(Mac) to select multiple subjects!</div>
+          <button type="submit" class="btn btn-primary form-control" style="height: 10%; font-size: 3vw; margin-left: 3%; margin-right: 3%;  width: 94%; margin-bottom:5%;">Add Subject</button>
+      </form>
+      <form action="/addgrade" method="POST">
+        <div class="form-group" style="margin-bottom: 5%;">
+            <input placeholder="Name of Course(Case Insensitive)" type="text" name="name" id="name" class="form-control" style="height: 10%; font-size: 3vw; margin-left: 3%; margin-right: 3%; width: 94%; border-style: solid; border-width: 4px; border-color: #000000;">
+            <select multiple required id="grade" name="grade" class="form-control" style="height: 10%; font-size: 3vw; margin-left: 3%; margin-right: 3%; width: 94%; border-style: solid; border-width: 4px; border-color: #000000; margin-bottom:2%;">>
+            <option disabled focused>Choose a Grade</option>
+
+            <option value="1">1st Grade</option>
+            <option value="2">2nd Grade</option>
+            <option value="3">3rd Grade</option>
+            <option value="4">4th Grade</option>
+            <option value="5">5th Grade</option>
+            <option value="6">6th Grade</option>
+            <option value="7">7th Grade</option>
+            <option value="8">8th Grade</option>
+            <option value="9">9th Grade</option>
+            <option value="10">10th Grade</option>
+            <option value="11">11th Grade</option>
+            <option value="12">12th Grade</option>
+       
+                
+                </select>
+          
+
+          <div style="font-size: 3vw; margin-left: 3%; margin-right: 3%; color: black;">Press CTRL(Windows) or Command(Mac) to select multiple subjects!</div>
+          <button type="submit" class="btn btn-primary form-control" style="height: 10%; font-size: 3vw; margin-left: 3%; margin-right: 3%;  width: 94%; margin-bottom:5%;">Add Grade</button>
+      </form>
+      <form action="/unfeaturecourse" method="POST">
+        <div class="form-group" style="margin-bottom: 5%;">
+          <input placeholder="Name of Course" type="text" name="name" id="name" class="form-control" style="height: 10%; font-size: 3vw; margin-left: 3%; margin-right: 3%; width: 94%; border-style: solid; border-width: 4px; border-color: #000000;">
+      
+          <button type="submit" class="btn btn-danger form-control" style="height: 10%; font-size: 3vw; margin-left: 3%; margin-right: 3%;  width: 94%; margin-bottom:5%;">Unfeature Course</button>
+      </form>
+      <form action="/changelink" method="POST">
+        <div class="form-group" style="margin-bottom: 5%;">
+          <input placeholder="Name of Course" type="text" name="name" id="name" class="form-control" style="height: 10%; font-size: 3vw; margin-left: 3%; margin-right: 3%; width: 94%; border-style: solid; border-width: 4px; border-color: #000000;">
+            <input placeholder="Link" type="text" name="link" id="link" class="form-control" style="height: 10%; font-size: 3vw; margin-left: 3%; margin-right: 3%; width: 94%; border-style: solid; border-width: 4px; border-color: #000000;">
+           
+          <button type="submit" class="btn btn-primary form-control" style="height: 10%; font-size: 3vw; margin-left: 3%; margin-right: 3%;  width: 94%; margin-bottom:5%;">Change Link for Live Course</button>
+      </form>
+      {% endif %}
+      <form action="/changepassword" method="POST">
+        <div class="form-group" style="margin-bottom: 5%;">
+          <input placeholder="New Password (Case Insensitive)" type="password" name="password" id="password" class="form-control" style="height: 10%; font-size: 3vw; margin-left: 3%; margin-right: 3%; width: 94%; border-style: solid; border-width: 4px; border-color: #000000;">
+            <input placeholder="Old Password (Case Insensitive)" type="password" name="oldpass" id="oldpass" class="form-control" style="height: 10%; font-size: 3vw; margin-left: 3%; margin-right: 3%; width: 94%; border-style: solid; border-width: 4px; border-color: #000000;">
+          <button type="submit" class="btn btn-warning form-control" style="height: 10%; font-size: 3vw; margin-left: 3%; margin-right: 3%;  width: 94%; margin-bottom:5%;">Change Password</button>
+      </form>
+      <form action="/confirm" method="GET">
+        
+          <button type="submit" class="btn btn-danger form-control" style="height: 10%; font-size: 3vw; margin-left: 3%; margin-right: 3%;  width: 94%; margin-bottom:5%;">Important Settings</button>
+      </form>
+      <form action="/progress" method="GET">
+        
+          <button type="submit" class="btn btn-success form-control" style="height: 10%; font-size: 3vw; margin-left: 3%; margin-right: 3%;  width: 94%; margin-bottom:5%;">Progress Bar</button>
+      </form>
+      {% for sentence in sentenceList %}
+      <div style="color:black; font-size: 3vw; width: 100%; text-align: center;">{{sentence}} </div><br>
+      
+      {% endfor %}
+      <form action="/searchcourses" method="POST">
+        <div class="form-group">
+          <select required id="grade" name="grade" class="form-control" style="height: 10%; font-size: 3vw; margin-left: 3%; margin-right: 3%; width: 94%; border-style: solid; border-width: 4px; border-color: #000000;">>
+            <option disabled focused>Choose a Grade</option>
+
+            <option value="1">1st Grade</option>
+            <option value="2">2nd Grade</option>
+            <option value="3">3rd Grade</option>
+            <option value="4">4th Grade</option>
+            <option value="5">5th Grade</option>
+            <option value="6">6th Grade</option>
+            <option value="7">7th Grade</option>
+            <option value="8">8th Grade</option>
+            <option value="9">9th Grade</option>
+            <option value="10">10th Grade</option>
+            <option value="11">11th Grade</option>
+            <option value="12">12th Grade</option>
+       
+                
+                </select>
+          
+            <select multiple required id="subject" name="subject" class="form-control" style="height: 10%; font-size: 3vw; margin-left: 3%; margin-right: 3%; width: 94%; border-style: solid; border-width: 4px; border-color: #000000;">
+              
+              <option focused disabled >Choose a Subject</option>
+                  <option value="Math">Math</option>
+                  <option value="Science">Science</option>
+                <option value="LA">Langauge Arts</option>
+                  <option value="Art">Art</option>
+                  <option value="Extra-Curriculars">Extra-Curriculars</option>
+                  <option value="History">History</option>
+                  <option value="Geography">Geography</option>
+                  <option value="French">French</option>
+                
+                </select>
+
+       <div style="font-size: 3vw; margin-left: 3%; margin-right: 3%; color: black;">Press CTRL(Windows) or Command(Mac) to select multiple subjects!</div>
+          <button type="submit" class="btn btn-primary form-control" style="height: 10%; font-size: 3vw; margin-left: 3%; margin-right: 3%;  width: 94%;">Find Courses</button></div>
+      </form>
+      <form action="/liveevents" method="GET">
+        <div class="form-group" style="margin-bottom: 5%;">
+    
+          <button type="submit" class="btn btn-primary form-control" style="height: 10%; font-size: 3vw; margin-left: 3%; margin-right: 3%;  width: 94%; margin-bottom:5%;">View Upcoming Live Events</button>
+      </form>
+      <form action="/suggest" method="POST">
+        <div class="form-group" style="margin-bottom: 5%;">
+          <input placeholder="Email Address" type="text" name="email" id="email" class="form-control" style="height: 10%; font-size: 3vw; margin-left: 3%; margin-right: 3%; width: 94%; border-style: solid; border-width: 4px; border-color: #000000;">
+          <textarea placeholder="Tell us your amazing suggestion! (Also accepts bug reports)" name="description" id="description" class="form-control" style="height: 10%; font-size: 3vw; margin-left: 3%; margin-right: 3%;  width: 94%; margin-bottom:1%; border-style: solid; border-width: 4px; border-color: #000000;"></textarea>
+           
+          <button type="submit" class="btn btn-warning form-control" style="height: 10%; font-size: 3vw; margin-left: 3%; margin-right: 3%;  width: 94%; margin-bottom:5%;">Send Suggestion</button>
+      </form>
+      <br>
+      <div style="color:black; font-size: 3vw; width: 90%; text-align: center; margin-right: 5%; margin-left: 5%;">ReSourced is currently looking for volunteers to create amazing educational courses to assist students in learning better! If you would like to apply, email <a target="_blank"href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=OfficialReSourced@gmail.com" title="Click to email me!">OfficialReSourced@gmail.com</a> or fill out this <a target="_blank"href="https://docs.google.com/forms/d/e/1FAIpQLSfHkOMk4a7PlXoRYr5GJc8kzZoa1iLw-YsRtPJbiEten94Ybg/viewform" >Volunteer Application Form</a>, for other ways to contact us visit the  <a href="https://contact.resourced.repl.co/">Contact Us Page</a>. </div><br>
+      <form action="/viewcompleted" method="GET">
+        <div class="form-group" style="margin-bottom: 5%;">
+    
+          <button type="submit" class="btn btn-primary form-control" style="height: 10%; font-size: 3vw; margin-left: 3%; margin-right: 3%;  width: 94%; margin-bottom:5%;">View Completed Courses</button>
+      </form>
+      <div style="color:black; font-size: 3vw; width: 100%; text-align: center; margin-right: 5%; margin-left: 5%;">Courses that you are currently working on: </div><br>
+      {% for course in courses %}
+      <div style="color:black; font-size: 3vw; width: 90%; text-align: center; background-color: #FFFFE0; margin-right: 5%; margin-left: 5%; padding-top:5%; padding-bottom:5%;"><div style="font-size: 3vw; margin-bottom: 2%; margin-right: 5%; margin-left: 5%;">{{course.quantity}} Videos:  {{course.subject}} - {{course.title}}</div><iframe width="70%" height="500px" src="https://www.youtube.com/embed/{{course.firstLink}}?t=1&autoplay=0&controls=1" frameborder="0" allow="autoplay;"  ></iframe> <div style="font-size: 3vw; margin-bottom: 2%; margin-right: 5%; margin-left: 5%;">{{course.description}}</div>
+      <form action="/itempage" method="GET">
+        <div class="form-group" >
+    
+          <button name="course" id="course" value="{{course.id}}" type="submit" class="btn btn-primary form-control" style="height: 10%; font-size: 3vw; margin-left: 3%; margin-right: 3%;  width: 94%; ">Check Course Page</button>
+      </form></div><br>
+      
+      {% endfor %}
+
+    <div  style="height:100%; ">
+          <img src="https://i.ibb.co/4VkKw91/stamp4.png" style="height: 7%; width: 7%; margin-left: 1.5%; float: left;"><div style="font-size: 6vw; color: #00b4a3; font-family: verdana; float: left; margin-top: 2%;">eSourced</div>
+      
+      <form action="https://discord.com/invite/9ZE7sxks" method="GET">
+        <div class="form-group" >
+    
+          <button type="submit" class="btn btn-primary form-control" style="height: 10%; font-size: 3vw; margin-left: 3%; margin-right: 3%;  width: 94%; ">Join our Discord Community Server!</button>
+      </form>
+    </body>
+</html>

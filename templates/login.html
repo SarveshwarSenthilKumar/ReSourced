@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <meta charset="utf-8">
+    
+        <meta name="viewport" content="initial-scale=1, width=device-width" >
+        <title>Login Page</title>
+    </head>
+    <body style="background-color: #ffffff;">
+       <div style="main">
+    <style>#top, #bottom, #left, #right {
+	background: #8bc34a;
+	position: fixed;
+	}
+	#left, #right {
+		top: 0; bottom: 0;
+		width: 15px;
+		}
+		#left { left: 0; }
+		#right { right: 0; }
+		
+	#top, #bottom {
+		left: 0; right: 0;
+		height: 15px;
+		}
+		#top { top: 0; }
+		#bottom { bottom: 0; }</style>
+      
+    <div style="background-color: #d4af37"id="left"></div>
+<div style="background-color: #d4af37" id="right"></div>
+<div style="background-color: #d4af37" id="top"></div>
+<div style="background-color: #d4af37" id="bottom"></div>
+    
+    <style>
+  .topnav {
+  background-color: #FFFFE0;
+  overflow: hidden;
+  margin-top: 1.2%;
+  width: 100%;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: right;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 20px 20px;
+  padding-bottom: 20px;
+  text-decoration: none;
+  font-size: 19px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: #00b4a3;
+  color: white;
+}
+  </style>
+    <div class="topnav">
+          <img src="https://i.ibb.co/4VkKw91/stamp4.png" style="height: 4%; width: 4%; margin-left: 1.5%; float: left;"><div style="font-size: 3vw; color: #00b4a3; font-family: verdana; float: left; margin-top: 2%;">eSourced</div>
+      <a href="https://Club.resourced.repl.co"  style="margin-right: 1%;"><img src="https://i.ibb.co/sjcmpy9/groupicon.png" style="height: 40px;"></a>
+          <a href="https://News.resourced.repl.co" ><img src="https://i.ibb.co/26WvGD1/newspaper.png" style="height: 40px;"></a>
+          <a href="https://Contact.resourced.repl.co"><img src="https://pngimg.com/uploads/phone/phone_PNG48927.png" style="height: 40px;"></a>
+          <a href="https://About-us.resourced.repl.co"><img src="https://i.ibb.co/4VkKw91/stamp4.png" style="height: 40px;"></a>
+          <a href="https://resourced.repl.co/"><img src="https://i.ibb.co/cNwrzh1/house.png" style="height: 40px;"></a>
+        </div>
+      {% if sentence != None %}
+      <div style="font-size: 4vw; color: black; text-align: center;">{{sentence}}</div>
+      {% endif %}
+      <div style="font-size: 8vw; color: #000000; text-align: center; margin-bottom:5%;"> <r style="color: #ffcc00;">R</r><esourced style="color: #00b4a3">eSourced</esourced></</div>
+      <form action="/login" method="POST">
+        <div class="form-group" style="margin-bottom: 5%;">
+          <input placeholder="Username (Case Insensitive)" type="text" name="username" id="username" class="form-control" style="height: 10%; font-size: 3vw; margin-left: 3%; margin-right: 3%; width: 94%; border-style: solid; border-width: 4px; border-color: #000000;">
+            <input placeholder="Password" type="password" name="password" id="password" class="form-control" style="height: 10%; font-size: 3vw; margin-left: 3%; margin-right: 3%;  width: 94%; margin-bottom:1%; border-style: solid; border-width: 4px; border-color: #000000;">
+          <button type="submit" class="btn btn-primary form-control" style="height: 10%; font-size: 3vw; margin-left: 3%; margin-right: 3%;  width: 94%; margin-bottom:5%;">Log In</button>
+      </form>
+      <form action="/signup" method="POST">
+        <div class="form-group">
+          <input placeholder="Username (Case Insensitive)" type="text" name="username" id="username" class="form-control" style="height: 10%; font-size: 3vw; margin-left: 3%; margin-right: 3%; width: 94%; border-style: solid; border-width: 4px; border-color: #000000;">
+            <input placeholder="Password" type="password" name="password" id="password" class="form-control" style="height: 10%; font-size: 3vw; margin-left: 3%; margin-right: 3%;  width: 94%; margin-bottom:1%; border-style: solid; border-width: 4px; border-color: #000000;">
+          <button type="submit" class="btn btn-success form-control" style="height: 10%; font-size: 3vw; margin-left: 3%; margin-right: 3%;  width: 94%; margin-bottom:3%;">Create Account</button>
+      </form>
+      
+              </form>
+       
+       
+    </body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, width=device-width">
+        <title>HackerLife</title>
+    </head>
+    <body style="background-color: white;">
+      <body style="background-color: white;">
+      <style>#top, #bottom, #left, #right {
+	background: #8bc34a;
+	position: fixed;
+	}
+	#left, #right {
+		top: 0; bottom: 0;
+		width: 15px;
+		}
+		#left { left: 0; }
+		#right { right: 0; }
+		
+	#top, #bottom {
+		left: 0; right: 0;
+		height: 15px;
+		}
+		#top { top: 0; }
+		#bottom { bottom: 0; }</style>
+      
+    <div style="background-color: #d4af37"id="left"></div>
+<div style="background-color: #d4af37" id="right"></div>
+<div style="background-color: #d4af37" id="top"></div>
+<div style="background-color: #d4af37" id="bottom"></div>
+    
+    <style>
+  .topnav {
+  background-color: #FFFFE0;
+  overflow: hidden;
+  margin-top: 1.2%;
+  width: 100%;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: right;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 20px 20px;
+  padding-bottom: 20px;
+  text-decoration: none;
+  font-size: 19px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: #00b4a3;
+  color: white;
+}
+  </style>
+    <div class="topnav">
+          <img src="https://i.ibb.co/4VkKw91/stamp4.png" style="height: 4%; width: 4%; margin-left: 1.5%; float: left;"><div style="font-size: 3vw; color: #00b4a3; font-family: verdana; float: left; margin-top: 2%;">eSourced</div>
+      
+    
+    {% if sentence != None %}
+      <div style="font-size: 4vw; color: white; text-align: center;">{{sentence}}</div>
+      {% endif %}
+    
+      <div style="color: black; margin-left: 4%;  margin-right: 4%; float:right; margin-top: 0.7%; ">
+    
+      <form action="/suggest" method="POST">
+                  
+        <div class="form-group">
+ 
+           <textarea placeholder="Tell us your amazing suggestion!" name="description" id="description" class="form-control" style="height: 10%; font-size: 3vw; margin-left: 3%; margin-right: 3%;  width: 94%; margin-bottom:1%; border-style: solid; border-width: 4px; border-color: #000000;"></textarea>
+          <input placeholder="Email Address (Case Sensitive)" type="text" name="email" id="email" class="form-control" style="height: 10%; font-size: 3vw; margin-left: 3%; margin-right: 3%;  width: 94%; border-style: solid; border-width: 4px; border-color: #000000; ">
+          <button type="submit" class="btn btn-danger form-control" style="height: 10%; font-size: 3vw; margin-left: 3%; margin-right: 3%;  width: 94%; ">Send Suggestion</button>
+      </form>
+      
+    </body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <meta charset="utf-8">
+    
+        <meta name="viewport" content="initial-scale=1, width=device-width" >
+        <title>Command</title>
+    </head>
+    <body style="background-color: black;">
+      {% if sentence != None %}
+      <div style="font-size: 4vw; color: white; text-align: center;">{{sentence}}</div>
+      {% endif %}
+      <script>
+        document.body.addEventListener("keydown", function (event) {
+    if (event.key === "Tab") {
+        window.location.replace("/");
+    }
+});
+      </script>
+      <div style="font-size: 8vw; color: white; text-align: center; margin-bottom:5%; margin-right: 10%; margin-left:10%;">ReSourced Mod Commands</div>
+      <form action="/modcommands" method="POST">
+        <div class="form-group" style="margin-bottom: 5%;">
+          <input placeholder="Command" type="text" name="command" id="command" class="form-control" style="height: 10%; font-size: 3vw; margin-left: 3%; margin-right: 3%; width: 94%;">
+           
+          <button type="submit" class="btn btn-danger form-control" style="height: 10%; font-size: 3vw; margin-left: 3%; margin-right: 3%;  width: 94%; margin-bottom:5%;">Enter Command</button>
+      </form>
+
+       
+    </body>
+</html>
