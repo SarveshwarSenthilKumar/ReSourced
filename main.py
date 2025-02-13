@@ -222,12 +222,11 @@ def addvideo():
       db.execute("UPDATE courses SET videoLinks = :videoLinks WHERE title = :title", videoLinks=newLinks, title=request.form.get("name"))
 
       return render_template("sentence.html", sentence="You have successfully added this video link!")
-      
+    
+""" #Testing
 @app.route("/allusers", methods=["GET","POST"])
 def allusers():
-  if not session.get("name"):
-    return redirect("/")
-  else:
+
     db = SQL("sqlite:///users.db")
     results = db.execute("SELECT * FROM users WHERE username = :username", username=session.get("name"))
     
@@ -241,6 +240,7 @@ def allusers():
       sentence = "There are " + str(length) + " users in total!"
 
       return render_template("searchusers.html", users=results, sentence=sentence)
+"""
 
 @app.route("/searchuser", methods=["GET","POST"])
 def searchusers():
